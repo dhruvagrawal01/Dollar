@@ -14,6 +14,7 @@
 		5008CBEC291EBE1700200DA9 /* DollarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CBEB291EBE1700200DA9 /* DollarTests.swift */; };
 		5008CBF6291EBE1700200DA9 /* DollarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CBF5291EBE1700200DA9 /* DollarUITests.swift */; };
 		5008CBF8291EBE1700200DA9 /* DollarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CBF7291EBE1700200DA9 /* DollarUITestsLaunchTests.swift */; };
+		5008CC05291EC37100200DA9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC04291EC37100200DA9 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5008CBF1291EBE1700200DA9 /* DollarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DollarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5008CBF5291EBE1700200DA9 /* DollarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarUITests.swift; sourceTree = "<group>"; };
 		5008CBF7291EBE1700200DA9 /* DollarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5008CC04291EC37100200DA9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				5008CBDA291EBE1600200DA9 /* DollarApp.swift */,
+				5008CC04291EC37100200DA9 /* HomeView.swift */,
 				5008CBDC291EBE1600200DA9 /* ContentView.swift */,
 				5008CBDE291EBE1700200DA9 /* Assets.xcassets */,
 				5008CBE0291EBE1700200DA9 /* Preview Content */,
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5008CC05291EC37100200DA9 /* HomeView.swift in Sources */,
 				5008CBDD291EBE1600200DA9 /* ContentView.swift in Sources */,
 				5008CBDB291EBE1600200DA9 /* DollarApp.swift in Sources */,
 			);

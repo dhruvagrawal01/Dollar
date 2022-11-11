@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var page_index = 0
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        switch page_index {
+        case 0:
+            HomeView(page_index: $page_index)
+        default:
+            HomeView(page_index: $page_index)
         }
-        .padding()
     }
 }
 
