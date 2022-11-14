@@ -12,13 +12,33 @@ struct BudgetDetailView: View {
     let selectedBudget: Budget
     
     @State private var searchString = ""
+    @State private var transactions = []
     
     var body: some View {
         VStack {
             
             List {
-                Text("Test")
-            }.navigationTitle(selectedBudget.name)
+                ForEach(selectedBudget.groups, id: \.self) { group in
+                    Section(header: Text(group)) {
+                        ForEach(selectedBudget.transactions.filter {
+                            $0.group.lowercased() == group.lowercased()
+                        }) { transaction in
+                            NavigationLink(value: transaction) {
+                                TransactionHighlightView(transaction: transaction)
+                            }
+                        }
+                    }
+                }
+            }.searchable(text: $searchString)
+                .onChange(of: searchString, perform: { newValue in
+                    if newValue.isEmpty {
+                        transactions = selectedBudget.transactions
+                    } else {
+                        transactions = selectedBudget.transactions.filter { $0.item.lowercased().hasPrefix(searchString.lowercased())}
+                    }
+                })
+                .listStyle(.sidebar)
+            .navigationTitle(selectedBudget.name)
         }
     }
 }
