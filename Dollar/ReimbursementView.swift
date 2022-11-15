@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ReimbursementView: View {
 	@Binding var page_index: Int
+	
 	@State private var title: String = ""
+	@State private var amount: String = ""
+	@State private var description: String = ""
 	
 	var body: some View {
 		Form {
@@ -17,7 +20,7 @@ struct ReimbursementView: View {
 				alignment: .leading,
 				spacing: 10
 			) {
-				Text("Reimbursement Request").font(.title)
+				Text("Reimbursement Request").font(.title2)
 				
 				Spacer()
 				
@@ -45,7 +48,8 @@ struct ReimbursementView: View {
 				Button("Submit") {
 					page_index = 0
 				}
-			}.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+			}.frame(maxWidth: .infinity, alignment: .leading)
+				.padding()
 		}.textFieldStyle(.roundedBorder)
 	}
 	
