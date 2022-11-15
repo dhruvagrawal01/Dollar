@@ -21,6 +21,7 @@
 		5008CC10291F2BEC00200DA9 /* BudgetHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */; };
 		5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC1129206B1400200DA9 /* BudgetDetailView.swift */; };
 		5008CC142920797700200DA9 /* TransactionHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC132920797700200DA9 /* TransactionHighlightView.swift */; };
+		50D875F02922DB9A00376B61 /* BudgetChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D875EF2922DB9A00376B61 /* BudgetChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetHighlightView.swift; sourceTree = "<group>"; };
 		5008CC1129206B1400200DA9 /* BudgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailView.swift; sourceTree = "<group>"; };
 		5008CC132920797700200DA9 /* TransactionHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHighlightView.swift; sourceTree = "<group>"; };
+		50D875EF2922DB9A00376B61 /* BudgetChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */,
 				5008CC1129206B1400200DA9 /* BudgetDetailView.swift */,
 				5008CC132920797700200DA9 /* TransactionHighlightView.swift */,
+				50D875EF2922DB9A00376B61 /* BudgetChartView.swift */,
 			);
 			path = Budgets;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D875F02922DB9A00376B61 /* BudgetChartView.swift in Sources */,
 				5008CC0C291F01A900200DA9 /* BudgetsOverview.swift in Sources */,
 				5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */,
 				5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */,

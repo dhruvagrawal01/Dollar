@@ -37,8 +37,8 @@ class Budget: Identifiable, Hashable {
         groups = []
     }
     
-    func addTransaction(item: String, entityFrom: String, entityTo: String, amount: Float, description: String, groupName: String) {
-        transactions.append(Transaction(item: item, entityFrom: entityFrom, entityTo: entityTo, amount: amount, description: description, group: groupName))
+    func addTransaction(item: String, entityFrom: String, entityTo: String, amount: Float, description: String, groupName: String, date: Date) {
+        transactions.append(Transaction(item: item, entityFrom: entityFrom, entityTo: entityTo, amount: amount, description: description, budget: name, group: groupName, date: date))
         
         if !groups.contains(groupName) {
             groups.append(groupName)
@@ -49,7 +49,8 @@ class Budget: Identifiable, Hashable {
     }
     
     func addTransaction(transaction: Transaction) {
-        transactions.append(transaction)
+        let newTransaction = Transaction(item: transaction.item, entityFrom: transaction.entityFrom, entityTo: transaction.entityTo, amount: transaction.amount, description: transaction.description, budget: name, group: transaction.group, date: transaction.date)
+        transactions.append(newTransaction)
         
         if !groups.contains(transaction.group) {
             groups.append(transaction.group)
@@ -73,11 +74,19 @@ extension Budget {
             Budget(budgetName: "Project 2", initBudget: 8000)
         ]
         
+        var oneDay = DateComponents()
+        var twoDays = DateComponents()
+        
+        oneDay.day = 1
+        twoDays.day = 2
+        
         budgets.forEach { budget in
             budget.addTransaction(transaction: Transaction.sample)
             
-            var sampleTransaction = Transaction.sample
-            sampleTransaction.group = "Project"
+            var sampleTransaction = Transaction(item: "Test 2", entityFrom: "Person", entityTo: "Org", amount: 195, description: "Test", budget: "Test", group: "Project", date: Calendar.current.date(byAdding: oneDay, to: Date.now)!)
+            budget.addTransaction(transaction: sampleTransaction)
+            
+            sampleTransaction = Transaction(item: "Test 3", entityFrom: "Person", entityTo: "Org", amount: 249, description: "Test", budget: "Test", group: "General", date: Calendar.current.date(byAdding: twoDays, to: Date.now)!)
             budget.addTransaction(transaction: sampleTransaction)
         }
         
@@ -92,11 +101,13 @@ struct Transaction: Identifiable, Hashable {
     var entityTo: String
     var amount: Float
     var description: String
+    var budget: String
     var group = ""
+    var date: Date
 }
 
 extension Transaction {
     static var sample: Transaction {
-        Transaction(item: "Test", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Test item from Amazon", group: "General")
+        Transaction(item: "Test", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Test item from Amazon", budget: "General", group: "General", date: Date.now)
     }
 }

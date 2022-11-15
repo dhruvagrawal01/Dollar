@@ -12,10 +12,18 @@ struct BudgetDetailView: View {
     let selectedBudget: Budget
     
     @State private var searchString = ""
-    @State private var transactions = []
+    @State private var transactions: [Transaction] = []
     
     var body: some View {
         VStack {
+            GeometryReader { geometry in
+                HStack {
+                    
+                    BudgetChartView(data: selectedBudget.transactions, initBudget: selectedBudget.budget, budget: selectedBudget.name)
+                    
+                }.frame(alignment: .center)
+                    .padding()
+            }
             
             List {
                 ForEach(selectedBudget.groups, id: \.self) { group in
@@ -30,14 +38,14 @@ struct BudgetDetailView: View {
                     }
                 }
             }.searchable(text: $searchString)
-                .onChange(of: searchString, perform: { newValue in
-                    if newValue.isEmpty {
-                        transactions = selectedBudget.transactions
-                    } else {
-                        transactions = selectedBudget.transactions.filter { $0.item.lowercased().hasPrefix(searchString.lowercased())}
-                    }
-                })
-                .listStyle(.sidebar)
+            .onChange(of: searchString, perform: { newValue in
+                if newValue.isEmpty {
+                    transactions = selectedBudget.transactions
+                } else {
+                    transactions = selectedBudget.transactions.filter { $0.item.lowercased().hasPrefix(searchString.lowercased())}
+                }
+            })
+            .listStyle(.sidebar)
             .navigationTitle(selectedBudget.name)
         }
     }
