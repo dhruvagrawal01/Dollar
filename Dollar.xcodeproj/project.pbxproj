@@ -18,6 +18,11 @@
 		5008CBF8291EBE1700200DA9 /* DollarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CBF7291EBE1700200DA9 /* DollarUITestsLaunchTests.swift */; };
 		5008CC05291EC37100200DA9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC04291EC37100200DA9 /* HomeView.swift */; };
 		5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC08291ED29900200DA9 /* HeaderView.swift */; };
+		5008CC0C291F01A900200DA9 /* BudgetsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0B291F01A900200DA9 /* BudgetsOverview.swift */; };
+		5008CC0E291F17FB00200DA9 /* BudgetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0D291F17FB00200DA9 /* BudgetModels.swift */; };
+		5008CC10291F2BEC00200DA9 /* BudgetHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */; };
+		5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC1129206B1400200DA9 /* BudgetDetailView.swift */; };
+		5008CC142920797700200DA9 /* TransactionHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC132920797700200DA9 /* TransactionHighlightView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,11 @@
 		5008CBF7291EBE1700200DA9 /* DollarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5008CC04291EC37100200DA9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5008CC08291ED29900200DA9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		5008CC0B291F01A900200DA9 /* BudgetsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsOverview.swift; sourceTree = "<group>"; };
+		5008CC0D291F17FB00200DA9 /* BudgetModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModels.swift; sourceTree = "<group>"; };
+		5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetHighlightView.swift; sourceTree = "<group>"; };
+		5008CC1129206B1400200DA9 /* BudgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailView.swift; sourceTree = "<group>"; };
+		5008CC132920797700200DA9 /* TransactionHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHighlightView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,7 @@
 				5008CBDA291EBE1600200DA9 /* DollarApp.swift */,
 				5008CC04291EC37100200DA9 /* HomeView.swift */,
 				5008CC08291ED29900200DA9 /* HeaderView.swift */,
+				5008CC0A291F018100200DA9 /* Budgets */,
 				5008CBDC291EBE1600200DA9 /* ContentView.swift */,
 				299F5F262924025A00ABDBA7 /* RequestView.swift */,
 				299F5F282924094600ABDBA7 /* QuestionTemplate.swift */,
@@ -137,6 +148,18 @@
 				5008CBF7291EBE1700200DA9 /* DollarUITestsLaunchTests.swift */,
 			);
 			path = DollarUITests;
+			sourceTree = "<group>";
+		};
+		5008CC0A291F018100200DA9 /* Budgets */ = {
+			isa = PBXGroup;
+			children = (
+				5008CC0B291F01A900200DA9 /* BudgetsOverview.swift */,
+				5008CC0D291F17FB00200DA9 /* BudgetModels.swift */,
+				5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */,
+				5008CC1129206B1400200DA9 /* BudgetDetailView.swift */,
+				5008CC132920797700200DA9 /* TransactionHighlightView.swift */,
+			);
+			path = Budgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,11 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5008CC0C291F01A900200DA9 /* BudgetsOverview.swift in Sources */,
 				299F5F272924025A00ABDBA7 /* RequestView.swift in Sources */,
 				299F5F292924094600ABDBA7 /* QuestionTemplate.swift in Sources */,
 				5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */,
+				5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */,
 				5008CC05291EC37100200DA9 /* HomeView.swift in Sources */,
 				5008CBDD291EBE1600200DA9 /* ContentView.swift in Sources */,
+				5008CC0E291F17FB00200DA9 /* BudgetModels.swift in Sources */,
+				5008CC142920797700200DA9 /* TransactionHighlightView.swift in Sources */,
+				5008CC10291F2BEC00200DA9 /* BudgetHighlightView.swift in Sources */,
 				5008CBDB291EBE1600200DA9 /* DollarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

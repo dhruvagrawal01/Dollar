@@ -15,6 +15,8 @@ struct ContentView: View {
         case 0:
             HomeView(page_index: $page_index)
         case 1:
+            BudgetsOverview(orgName: "SPYDR")
+        case 2:
             RequestView(page_index: $page_index)
         default:
             HomeView(page_index: $page_index)
