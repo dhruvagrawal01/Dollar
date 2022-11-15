@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var page_index = 0
+    @State var page_index = 1
     
     var body: some View {
         switch page_index {
