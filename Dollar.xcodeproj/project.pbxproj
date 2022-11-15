@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		299F5F272924025A00ABDBA7 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299F5F262924025A00ABDBA7 /* RequestView.swift */; };
+		299F5F292924094600ABDBA7 /* QuestionTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299F5F282924094600ABDBA7 /* QuestionTemplate.swift */; };
 		5008CBDB291EBE1600200DA9 /* DollarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CBDA291EBE1600200DA9 /* DollarApp.swift */; };
 		5008CBDD291EBE1600200DA9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CBDC291EBE1600200DA9 /* ContentView.swift */; };
 		5008CBDF291EBE1700200DA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5008CBDE291EBE1700200DA9 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		299F5F262924025A00ABDBA7 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
+		299F5F282924094600ABDBA7 /* QuestionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTemplate.swift; sourceTree = "<group>"; };
 		5008CBD7291EBE1600200DA9 /* Dollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dollar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5008CBDA291EBE1600200DA9 /* DollarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarApp.swift; sourceTree = "<group>"; };
 		5008CBDC291EBE1600200DA9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				5008CC08291ED29900200DA9 /* HeaderView.swift */,
 				5008CC0A291F018100200DA9 /* Budgets */,
 				5008CBDC291EBE1600200DA9 /* ContentView.swift */,
+				299F5F262924025A00ABDBA7 /* RequestView.swift */,
+				299F5F282924094600ABDBA7 /* QuestionTemplate.swift */,
 				5008CBDE291EBE1700200DA9 /* Assets.xcassets */,
 				5008CBE0291EBE1700200DA9 /* Preview Content */,
 			);
@@ -287,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5008CC0C291F01A900200DA9 /* BudgetsOverview.swift in Sources */,
+				299F5F272924025A00ABDBA7 /* RequestView.swift in Sources */,
+				299F5F292924094600ABDBA7 /* QuestionTemplate.swift in Sources */,
 				5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */,
 				5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */,
 				5008CC05291EC37100200DA9 /* HomeView.swift in Sources */,
