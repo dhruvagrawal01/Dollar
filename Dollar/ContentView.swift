@@ -14,6 +14,8 @@ struct ContentView: View {
         switch page_index {
         case 0:
             HomeView(page_index: $page_index)
+        case 1:
+            RequestView(page_index: $page_index)
         default:
             HomeView(page_index: $page_index)
         }
