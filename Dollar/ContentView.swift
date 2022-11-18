@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var page_index = 2
+    @State var page_index = 3
     
     @State var t_names = ["Jeff", "Greg", "Kate", "Andrew", "Lee", "Carl", "Madeline"]
     @State var t_nums = ["- $10", "+ $20", "+ $32", "- $12", "- $24", "+ $34", "- $124"]
@@ -27,6 +27,10 @@ struct ContentView: View {
             BudgetsOverview(orgName: "SPYDR")
         case 2:
             RequestView(page_index: $page_index, t_names: $t_names, t_nums: $t_nums, t_descriptions: $t_descriptions, o_names: $o_names, o_nums: $o_nums, o_descriptions: $o_descriptions)
+        case 3:
+            OrgView(page_index: $page_index)
+        case 4:
+            OrgnizationOverview(page_index: $page_index)
         default:
             HomeView(page_index: $page_index, t_names: t_names, t_nums: t_nums, t_descriptions: t_descriptions, o_names: o_names, o_nums: o_nums, o_descriptions: o_descriptions)
         }

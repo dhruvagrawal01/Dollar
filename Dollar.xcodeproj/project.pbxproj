@@ -24,6 +24,8 @@
 		5008CC10291F2BEC00200DA9 /* BudgetHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */; };
 		5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC1129206B1400200DA9 /* BudgetDetailView.swift */; };
 		5008CC142920797700200DA9 /* TransactionHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC132920797700200DA9 /* TransactionHighlightView.swift */; };
+		542D47DB2927150000515C18 /* OrgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D47DA2927150000515C18 /* OrgView.swift */; };
+		542D47DE29271C2500515C18 /* OrgnizationOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D47DD29271C2500515C18 /* OrgnizationOverview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetHighlightView.swift; sourceTree = "<group>"; };
 		5008CC1129206B1400200DA9 /* BudgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailView.swift; sourceTree = "<group>"; };
 		5008CC132920797700200DA9 /* TransactionHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHighlightView.swift; sourceTree = "<group>"; };
+		542D47DA2927150000515C18 /* OrgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgView.swift; sourceTree = "<group>"; };
+		542D47DD29271C2500515C18 /* OrgnizationOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgnizationOverview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +122,10 @@
 				5008CBDA291EBE1600200DA9 /* DollarApp.swift */,
 				5008CC04291EC37100200DA9 /* HomeView.swift */,
 				5008CC08291ED29900200DA9 /* HeaderView.swift */,
+				542D47DC29271BFB00515C18 /* Orgnization */,
 				5008CC0A291F018100200DA9 /* Budgets */,
 				5008CBDC291EBE1600200DA9 /* ContentView.swift */,
+				542D47DA2927150000515C18 /* OrgView.swift */,
 				299F5F262924025A00ABDBA7 /* RequestView.swift */,
 				299F5F282924094600ABDBA7 /* QuestionTemplate.swift */,
 				5008CBDE291EBE1700200DA9 /* Assets.xcassets */,
@@ -163,6 +169,14 @@
 				5008CC132920797700200DA9 /* TransactionHighlightView.swift */,
 			);
 			path = Budgets;
+			sourceTree = "<group>";
+		};
+		542D47DC29271BFB00515C18 /* Orgnization */ = {
+			isa = PBXGroup;
+			children = (
+				542D47DD29271C2500515C18 /* OrgnizationOverview.swift */,
+			);
+			path = Orgnization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +312,8 @@
 				5008CC0C291F01A900200DA9 /* BudgetsOverview.swift in Sources */,
 				299F5F272924025A00ABDBA7 /* RequestView.swift in Sources */,
 				299F5F292924094600ABDBA7 /* QuestionTemplate.swift in Sources */,
+				542D47DE29271C2500515C18 /* OrgnizationOverview.swift in Sources */,
+				542D47DB2927150000515C18 /* OrgView.swift in Sources */,
 				5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */,
 				5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */,
 				5008CC05291EC37100200DA9 /* HomeView.swift in Sources */,
