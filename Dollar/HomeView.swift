@@ -46,23 +46,24 @@ struct transaction_card: View {
     }
 }
 
-
-
-
-
 struct HomeView: View {
     @Binding var page_index: Int
-    @State var view_toggle = true //me = True, org = False
+    @State var view_toggle = 0 //me = 0, org = 1, upcoming = 2
     
-    //Dummy variables
+    //Me
     @State var t_names : [String]
     @State var t_nums : [String]
     @State var t_descriptions : [String]
     
-    
+    //Org
     @State var o_names : [String]
     @State var o_nums : [String]
     @State var o_descriptions : [String]
+    
+    //Upcoming
+    @State var u_names : [String]
+    @State var u_nums : [String]
+    @State var u_descriptions : [String]
     
     var body: some View {
         GeometryReader { geo in
@@ -73,24 +74,36 @@ struct HomeView: View {
                 ZStack {
                     HStack {
                         Button {
-                            view_toggle.toggle()
+                            view_toggle = 0
+                        } label: {
+                            Text("Upcoming")
+                        }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle == 0 ? 1 : 0))
+                        Button {
+                            view_toggle = 1
                         } label: {
                             Text("Me")
-                        }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle ? 1 : 0))
+                        }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle == 1 ? 1 : 0))
                         Button {
-                            view_toggle.toggle()
+                            view_toggle = 2
                         } label: {
                             Text("Org")
-                        }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle ? 0 : 1))
+                        }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle == 2 ? 1 : 0))
                     }.position(x: geo.size.width/2, y: geo.size.height/6)
                 }
                 ZStack {
+                    ScrollView {
+                        ForEach((0...o_names.count-1), id: \.self) {
+                            //Text("\($0)")
+                            transaction_card(id: $0, t_names: u_names, t_nums: u_nums, t_descriptions: u_descriptions)
+                        }
+                    }.frame(width: geo.size.width / 1.5, height: geo.size.height / 2).position(x: geo.size.width / 2).opacity(view_toggle == 0 ? 1 : 0)
+                    
                     ScrollView {
                         ForEach((0...t_names.count-1), id: \.self) {
                             //Text("\($0)")
                             transaction_card(id: $0, t_names: t_names, t_nums: t_nums, t_descriptions: t_descriptions)
                         }
-                    }.frame(width: geo.size.width / 1.5, height: geo.size.height / 2).position(x: geo.size.width / 2).opacity(view_toggle ? 1 : 0)
+                    }.frame(width: geo.size.width / 1.5, height: geo.size.height / 2).position(x: geo.size.width / 2).opacity(view_toggle == 1 ? 1 : 0)
                     
                     
                     ScrollView {
@@ -98,7 +111,7 @@ struct HomeView: View {
                             //Text("\($0)")
                             transaction_card(id: $0, t_names: o_names, t_nums: o_nums, t_descriptions: o_descriptions)
                         }
-                    }.frame(width: geo.size.width / 1.5, height: geo.size.height / 2).position(x: geo.size.width / 2).opacity(view_toggle ? 0 : 1)
+                    }.frame(width: geo.size.width / 1.5, height: geo.size.height / 2).position(x: geo.size.width / 2).opacity(view_toggle == 2 ? 1 : 0)
                 }
                     
                 
@@ -116,7 +129,12 @@ struct HomeView_Previews: PreviewProvider {
     static var o_names = ["Darden", "Luke", "Matt", "Samitha", "Raymond", "Carl", "Madeline"]
     static var o_nums = ["+ $3", "- $60", "- $32", "- $12", "+ $24", "- $34", "+ $124"]
     static var o_descriptions = ["Bonding for club event", "2 axle components for car #2", "Seven screwdrivers for all teams", "20 arduinos", "CIF Room booking", "Photographer for photoshoot", "Misc"]
+    
+    
+    static var u_names = ["Darden", "Luke", "Matt", "Samitha", "Raymond", "Carl", "Madeline"]
+    static var u_nums = ["+ $3", "- $60", "- $32", "- $12", "+ $24", "- $34", "+ $124"]
+    static var u_descriptions = ["Bonding for club event", "2 axle components for car #2", "Seven screwdrivers for all teams", "20 arduinos", "CIF Room booking", "Photographer for photoshoot", "Misc"]
     static var previews: some View {
-        HomeView(page_index: .constant(0), t_names: t_names, t_nums: t_nums, t_descriptions: t_descriptions, o_names: o_names, o_nums: o_nums, o_descriptions: o_descriptions)
+        HomeView(page_index: .constant(0), t_names: t_names, t_nums: t_nums, t_descriptions: t_descriptions, o_names: o_names, o_nums: o_nums, o_descriptions: o_descriptions, u_names: u_names, u_nums: u_nums, u_descriptions: u_descriptions)
     }
 }

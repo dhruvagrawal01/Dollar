@@ -38,6 +38,7 @@ struct RequestView: View {
             QuestionTemplate(text_input: $how_much, starting_sting: "How much?").opacity(local_page_index == 1 ? 1 : 0)
     
             QuestionTemplate(text_input: $for_what, starting_sting: "What is being paid for?").opacity(local_page_index == 2 ? 1 : 0)
+            
 
         
             Button {
