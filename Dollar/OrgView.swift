@@ -33,7 +33,7 @@ struct OrgView: View {
                     org_members = ""
                     
                     local_page_index = 0
-                    page_index = 4
+                    page_index = 0
                 } else {
                     local_page_index += 1
                 }
