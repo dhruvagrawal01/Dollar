@@ -81,12 +81,13 @@ extension Budget {
         twoDays.day = 2
         
         budgets.forEach { budget in
-            budget.addTransaction(transaction: Transaction.sample)
             
-            var sampleTransaction = Transaction(item: "Test 2", entityFrom: "Person", entityTo: "Org", amount: 195, description: "Test", budget: "Test", group: "Project", date: Calendar.current.date(byAdding: oneDay, to: Date.now)!)
+            budget.addTransaction(transaction: Transaction(item: "Posters", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Posters for Quad Day", budget: budget.name, group: "General", date: Date.now))
+            
+            var sampleTransaction = Transaction(item: "Motor Controllers", entityFrom: "Person", entityTo: "Amazon", amount: 195, description: "Motor controllers for project", budget: budget.name, group: "Project", date: Calendar.current.date(byAdding: oneDay, to: Date.now)!)
             budget.addTransaction(transaction: sampleTransaction)
             
-            sampleTransaction = Transaction(item: "Test 3", entityFrom: "Person", entityTo: "Org", amount: 249, description: "Test", budget: "Test", group: "General", date: Calendar.current.date(byAdding: twoDays, to: Date.now)!)
+            sampleTransaction = Transaction(item: "Event catering", entityFrom: "Person", entityTo: "Jimmy Johns", amount: 249, description: "Food for recent tech talk event", budget: budget.name, group: "General", date: Calendar.current.date(byAdding: twoDays, to: Date.now)!)
             budget.addTransaction(transaction: sampleTransaction)
         }
         
@@ -108,6 +109,6 @@ struct Transaction: Identifiable, Hashable {
 
 extension Transaction {
     static var sample: Transaction {
-        Transaction(item: "Test", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Test item from Amazon", budget: "General", group: "General", date: Date.now)
+        Transaction(item: "Posters", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Posters for Quad Day", budget: "General", group: "General", date: Date.now)
     }
 }

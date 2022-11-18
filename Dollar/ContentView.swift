@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var page_index = 3
+    @State var page_index = 0
     
     @State var t_names = ["Jeff", "Greg", "Kate", "Andrew", "Lee", "Carl", "Madeline"]
     @State var t_nums = ["- $10", "+ $20", "+ $32", "- $12", "- $24", "+ $34", "- $124"]
