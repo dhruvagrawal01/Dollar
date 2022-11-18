@@ -12,33 +12,46 @@ struct BudgetDetailView: View {
     let selectedBudget: Budget
     
     @State private var searchString = ""
-    @State private var transactions = []
+    @State private var transactions: [Transaction] = []
     
     var body: some View {
         VStack {
+            GeometryReader { geometry in
+                HStack {
+                    
+                    BudgetChartView(data: selectedBudget.transactions, initBudget: selectedBudget.budget, budget: selectedBudget.name)
+                    
+                }.frame(alignment: .center)
+                    .padding()
+            }
             
-            List {
-                ForEach(selectedBudget.groups, id: \.self) { group in
-                    Section(header: Text(group)) {
-                        ForEach(selectedBudget.transactions.filter {
-                            $0.group.lowercased() == group.lowercased()
-                        }) { transaction in
-                            NavigationLink(value: transaction) {
-                                TransactionHighlightView(transaction: transaction)
+//            NavigationStack {
+                List {
+                    ForEach(selectedBudget.groups, id: \.self) { group in
+                        Section(header: Text(group)) {
+                            ForEach(selectedBudget.transactions.filter {
+                                $0.group.lowercased() == group.lowercased()
+                            }) { transaction in
+                                NavigationLink(value: transaction) {
+                                    TransactionHighlightView(transaction: transaction)
+                                }
                             }
                         }
                     }
-                }
-            }.searchable(text: $searchString)
-                .onChange(of: searchString, perform: { newValue in
-                    if newValue.isEmpty {
-                        transactions = selectedBudget.transactions
-                    } else {
-                        transactions = selectedBudget.transactions.filter { $0.item.lowercased().hasPrefix(searchString.lowercased())}
-                    }
-                })
-                .listStyle(.sidebar)
-            .navigationTitle(selectedBudget.name)
+                }.searchable(text: $searchString)
+                    .onChange(of: searchString, perform: { newValue in
+                        if newValue.isEmpty {
+                            transactions = selectedBudget.transactions
+                        } else {
+                            transactions = selectedBudget.transactions.filter { $0.item.lowercased().hasPrefix(searchString.lowercased())}
+                        }
+                    })
+                    .listStyle(.sidebar)
+//            }
+        .navigationTitle(selectedBudget.name)
+            .navigationDestination(for: Transaction.self) { transaction in
+                TransactionDetailView(transaction: transaction)
+            }
         }
     }
 }

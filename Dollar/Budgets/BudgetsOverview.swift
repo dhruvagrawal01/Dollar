@@ -19,6 +19,8 @@ struct BudgetsOverview: View {
         VStack {
             NavigationStack {
                 
+                
+                
                 List {
                     
                     Section(header: GeometryReader { geometry in
