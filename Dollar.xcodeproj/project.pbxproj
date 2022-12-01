@@ -21,10 +21,11 @@
 		5008CC05291EC37100200DA9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC04291EC37100200DA9 /* HomeView.swift */; };
 		5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC08291ED29900200DA9 /* HeaderView.swift */; };
 		5008CC0C291F01A900200DA9 /* BudgetsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0B291F01A900200DA9 /* BudgetsOverview.swift */; };
-		5008CC0E291F17FB00200DA9 /* BudgetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0D291F17FB00200DA9 /* BudgetModels.swift */; };
 		5008CC10291F2BEC00200DA9 /* BudgetHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */; };
 		5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC1129206B1400200DA9 /* BudgetDetailView.swift */; };
 		5008CC142920797700200DA9 /* TransactionHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CC132920797700200DA9 /* TransactionHighlightView.swift */; };
+		509F671A2936B0DB00E20728 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F67192936B0DA00E20728 /* TransactionModel.swift */; };
+		509F671C2936B31600E20728 /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F671B2936B31600E20728 /* BudgetModel.swift */; };
 		50D875F02922DB9A00376B61 /* BudgetChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D875EF2922DB9A00376B61 /* BudgetChartView.swift */; };
 		50D875F22927DFE300376B61 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D875F12927DFE300376B61 /* TransactionDetailView.swift */; };
 		542D47DB2927150000515C18 /* OrgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D47DA2927150000515C18 /* OrgView.swift */; };
@@ -67,10 +68,11 @@
 		5008CC04291EC37100200DA9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5008CC08291ED29900200DA9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5008CC0B291F01A900200DA9 /* BudgetsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsOverview.swift; sourceTree = "<group>"; };
-		5008CC0D291F17FB00200DA9 /* BudgetModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModels.swift; sourceTree = "<group>"; };
 		5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetHighlightView.swift; sourceTree = "<group>"; };
 		5008CC1129206B1400200DA9 /* BudgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailView.swift; sourceTree = "<group>"; };
 		5008CC132920797700200DA9 /* TransactionHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHighlightView.swift; sourceTree = "<group>"; };
+		509F67192936B0DA00E20728 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		509F671B2936B31600E20728 /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
 		50D875EF2922DB9A00376B61 /* BudgetChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetChartView.swift; sourceTree = "<group>"; };
 		50D875F12927DFE300376B61 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
 		542D47DA2927150000515C18 /* OrgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		5008CBD9291EBE1600200DA9 /* Dollar */ = {
 			isa = PBXGroup;
 			children = (
+				509F67182936B0B800E20728 /* Data */,
 				1C6330BA2927397A008A0AEA /* NavbarView.swift */,
 				B2AB067C2927324A002336B9 /* PaymentReqMethods.swift */,
 				1CDF7C2029242A20005CDF11 /* ReimbursementView.swift */,
@@ -173,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				5008CC0B291F01A900200DA9 /* BudgetsOverview.swift */,
-				5008CC0D291F17FB00200DA9 /* BudgetModels.swift */,
 				5008CC0F291F2BEC00200DA9 /* BudgetHighlightView.swift */,
 				5008CC1129206B1400200DA9 /* BudgetDetailView.swift */,
 				5008CC132920797700200DA9 /* TransactionHighlightView.swift */,
@@ -181,6 +183,15 @@
 				50D875F12927DFE300376B61 /* TransactionDetailView.swift */,
 			);
 			path = Budgets;
+			sourceTree = "<group>";
+		};
+		509F67182936B0B800E20728 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				509F67192936B0DA00E20728 /* TransactionModel.swift */,
+				509F671B2936B31600E20728 /* BudgetModel.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		542D47DC29271BFB00515C18 /* Orgnization */ = {
@@ -329,12 +340,13 @@
 				542D47DE29271C2500515C18 /* OrgnizationOverview.swift in Sources */,
 				542D47DB2927150000515C18 /* OrgView.swift in Sources */,
 				5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */,
+				509F671C2936B31600E20728 /* BudgetModel.swift in Sources */,
 				5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */,
 				5008CC05291EC37100200DA9 /* HomeView.swift in Sources */,
+				509F671A2936B0DB00E20728 /* TransactionModel.swift in Sources */,
 				5008CBDD291EBE1600200DA9 /* ContentView.swift in Sources */,
 				B2AB067D2927324B002336B9 /* PaymentReqMethods.swift in Sources */,
 				50D875F22927DFE300376B61 /* TransactionDetailView.swift in Sources */,
-				5008CC0E291F17FB00200DA9 /* BudgetModels.swift in Sources */,
 				5008CC142920797700200DA9 /* TransactionHighlightView.swift in Sources */,
 				5008CC10291F2BEC00200DA9 /* BudgetHighlightView.swift in Sources */,
 				5008CBDB291EBE1600200DA9 /* DollarApp.swift in Sources */,

@@ -14,7 +14,7 @@ struct TransactionHighlightView: View {
         GeometryReader { geometry in
             HStack {
                 
-                Text(transaction.item).frame(width: geometry.size.width * 0.35, alignment: Alignment(horizontal: .leading, vertical: .center))
+                Text(transaction.itemName).frame(width: geometry.size.width * 0.35, alignment: Alignment(horizontal: .leading, vertical: .center))
                 Text(transaction.entityFrom)
                 Spacer()
                 Text(transaction.entityTo)

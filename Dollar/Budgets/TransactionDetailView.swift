@@ -14,7 +14,7 @@ struct TransactionDetailView: View {
         GeometryReader { geometry in
             Spacer()
             VStack(alignment: .leading) {
-                Text(transaction.item)
+                Text(transaction.itemName)
                     .font(.largeTitle)
                     .multilineTextAlignment(.leading)
                 

@@ -75,11 +75,7 @@ struct BudgetChartView_Previews: PreviewProvider {
         oneDay.day = 1
         twoDays.day = 2
         
-        return BudgetChartView(data: [
-            Transaction.sample,
-            Transaction(item: "Test", entityFrom: "Person", entityTo: "Org", amount: 195, description: "Test", budget: "Test", date: Calendar.current.date(byAdding: oneDay, to: Date.now)!),
-            Transaction(item: "Test 2", entityFrom: "Person 2", entityTo: "Org", amount: 249, description: "Test 2", budget: "Test", date: Calendar.current.date(byAdding: twoDays, to: Date.now)!)
-        ], initBudget: 1000, budget: "General")
+        return BudgetChartView(data: Transaction.samples, initBudget: 1000, budget: "General")
     }
 }
 

@@ -24,13 +24,15 @@ struct ContentView: View {
     @State var u_nums = ["$33", "$20", "$32", "$28", "$44", "$21", "$18"]
     @State var u_descriptions = ["Bonding for club event", "2 axle components for car #2", "Seven screwdrivers for all teams", "20 arduinos", "CIF Room booking", "Photographer for photoshoot", "Misc"]
     
+    @State var budgets = Budget.samples
+    
     var body: some View {
 		VStack(alignment: .center) {
 			switch page_index {
 			case 0:
 				HomeView(page_index: $page_index, t_names: t_names, t_nums: t_nums, t_descriptions: t_descriptions, o_names: o_names, o_nums: o_nums, o_descriptions: o_descriptions, u_names: u_names, u_nums: u_nums, u_descriptions: u_descriptions)
 			case 1:
-				BudgetsOverview(orgName: "SPYDR")
+				BudgetsOverview(orgName: "SPYDR", origBudgets: budgets, displayedBudgets: budgets)
 			case 2:
 				OrgnizationOverview(page_index: $page_index)
 			case 3:
