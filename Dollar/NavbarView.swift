@@ -25,6 +25,17 @@ struct NavbarView: View {
 			}) {
 				Image(systemName: "chart.bar")
 			}
+            
+            Spacer()
+                
+            Button(action: {
+                page_index = 4
+            }) {
+                Image(systemName: "plus")
+            }.padding(8)
+                .background(Color(.lightGray))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
 			
 			Spacer()
 			
@@ -33,17 +44,6 @@ struct NavbarView: View {
 			}) {
 				Image(systemName: "person.3")
 			}
-			
-			Spacer()
-				
-			Button(action: {
-				page_index = 4
-			}) {
-				Image(systemName: "plus")
-			}.padding(8)
-				.background(Color(.lightGray))
-			.foregroundColor(.white)
-			.clipShape(Capsule())
 		}.padding(40)
 	}
 }

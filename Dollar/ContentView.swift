@@ -26,7 +26,7 @@ struct ContentView: View {
     @State var u_names = ["Spyder", "Jared", "Spyder", "Dak", "Spyder", "Spyder", "Madeline"]
     @State var u_names_from = ["Me", "Me", "Me", "Me", "Me", "Me", "Me"]
     @State var u_nums = ["$33", "$20", "$32", "$28", "$44", "$21", "$18"]
-    @State var u_descriptions = ["d", "2 axle components for car #2", "Seven screwdrivers for all teams", "20 arduinos", "CIF Room booking", "Photographer for photoshoot", "Misc"]
+    @State var u_descriptions = ["37 Cupcakes", "2 axle components for car #2", "Seven screwdrivers for all teams", "20 arduinos", "CIF Room booking", "Photographer for photoshoot", "Misc"]
     
     @State var budgets = Budget.samples
     
@@ -42,7 +42,7 @@ struct ContentView: View {
 			case 3:
 				OrgView(page_index: $page_index)
 			case 4:
-                RequestView(page_index: $page_index, t_names: $t_names, t_names_from: $t_names_from, t_nums: $t_nums, t_descriptions: $t_descriptions, o_names: $o_names, o_names_from: $o_names_from, o_nums: $o_nums, o_descriptions: $o_descriptions, u_names: $u_names, u_names_from: $u_names, u_nums: $u_nums, u_descriptions: $u_descriptions)
+                RequestView(page_index: $page_index, t_names: $t_names, t_names_from: $t_names_from, t_nums: $t_nums, t_descriptions: $t_descriptions, o_names: $o_names, o_names_from: $o_names_from, o_nums: $o_nums, o_descriptions: $o_descriptions, u_names: $u_names, u_names_from: $u_names_from, u_nums: $u_nums, u_descriptions: $u_descriptions)
 			case 5:
 				ReimbursementView(page_index: $page_index, t_names: $t_names, t_nums: $t_nums, t_descriptions: $t_descriptions)
 			case 6:

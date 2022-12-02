@@ -42,70 +42,83 @@ struct RequestView: View {
             
         GeometryReader { geo in
             // Recepient
-            ZStack {
                 VStack {
-                    Group {
-                        QuestionTemplate(text_input: $to_whom, starting_sting: "Who is being payed?").opacity(me_paying ? 0 : 1).position(x:geo.size.width / 2, y:geo.size.height / 2)
-                        Text("Continue placing reimbursemnt request!").opacity(me_paying ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
+                    ZStack {
                         Group {
-                            VStack {
-                                ZStack {
-                                    Button {
-                                        me_paying.toggle()
-                                    } label: {
-                                        Text("I am paying")
-                                    }.opacity(me_paying ? 0 : 1).foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(width: 100, height: 30).opacity(me_paying ? 0 : 1))
-                                    Button {
-                                        me_paying.toggle()
-                                    } label: {
-                                        Text("Someone else is paying")
-                                    }.opacity(me_paying ? 1 : 0).foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 200, minHeight: 30).opacity(me_paying ? 1 : 0))
+                            QuestionTemplate(text_input: $to_whom, starting_sting: "Who is being payed?").opacity(me_paying ? 0 : 1).position(x:geo.size.width / 2, y:geo.size.height / 2)
+                            Text("Continue placing reimbursemnt request!").opacity(me_paying ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
+                        }.opacity(local_page_index == 0 ? 1 : 0)
+                        
+                        ZStack {
+                            Group {
+                                VStack {
+                                    ZStack {
+                                        Button {
+                                            me_paying = true
+                                        } label: {
+                                            Text("I am being paying")
+                                        }.opacity(me_paying ? 0 : 1).foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.5)).frame(width: 200, height: 30).opacity(me_paying ? 0 : 1))
+                                        Button {
+                                            me_paying = false
+                                        } label: {
+                                            Text("Someone else is being payed")
+                                        }.opacity(me_paying ? 1 : 0).foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.5)).frame(minWidth: 200, minHeight: 30).opacity(me_paying ? 1 : 0))
+                                    }
                                 }
-                            }
-                        }.position(x:geo.size.width / 2,y:geo.size.height / 4)
-                    }.opacity(local_page_index == 0 ? 1 : 0)
-                    
-                    // Sender
-                    QuestionTemplate(text_input: $from_whom, starting_sting: "Who is paying?").opacity(local_page_index == 1 ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
-                    // Quantitiy
-                    QuestionTemplate(text_input: $how_much, starting_sting: "How much?").opacity(local_page_index == 2 ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
-                    // Description
-                    QuestionTemplate(text_input: $for_what, starting_sting: "What is being paid for?").opacity(local_page_index == 3 ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
-                    
-                    
-                    Button {
-                        if (local_page_index == 2) {
-                            
-                            if me_paying == true {
-                                u_names.append(to_whom)
-                                u_names_from.append("me")
-                                u_nums.append("+ $" + how_much)
-                                u_descriptions.append(for_what)
-                            } else {
-                                //submit
-                                t_names.append(to_whom)
-                                t_names_from.append(from_whom)
-                                t_nums.append( how_much)
-                                t_descriptions.append(for_what)
-                            }
-                            
-                            to_whom = ""
-                            how_much = ""
-                            for_what = ""
-                            
-                            local_page_index = 0
-                            page_index = 0
-                        } else {
-                            local_page_index += 1
-                        }
-                    } label: {
-                        Text("Next")
+                            }.position(x:geo.size.width / 2,y:geo.size.height / 4)
+                        }.opacity(local_page_index == 0 ? 1 : 0)
+                        
+                        // Sender
+                        QuestionTemplate(text_input: $from_whom, starting_sting: "Who is paying?").opacity(local_page_index == 1 ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
+                        // Quantitiy
+                        QuestionTemplate(text_input: $how_much, starting_sting: "How much?").opacity(local_page_index == 2 ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
+                        // Description
+                        QuestionTemplate(text_input: $for_what, starting_sting: "What is being paid for?").opacity(local_page_index == 3 ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
                     }
-                    .buttonStyle(.bordered)
-                    .position(x:geo.size.width / 2)
+                    
+                    HStack {
+                        Button {
+                            if local_page_index != 0 {
+                                local_page_index -= 1
+                            }
+                        } label : {
+                            Text("Back")
+                        }.buttonStyle(.bordered)
+                        
+                        Button {
+                            if (local_page_index == 3) {
+                                
+                                if me_paying == true {
+                                    print("me_paying")
+                                    u_names.append("me")
+                                    u_names_from.append(from_whom)
+                                    u_nums.append("$" + how_much)
+                                    u_descriptions.append(for_what)
+                                } else {
+                                    //submit
+                                    t_names.append(to_whom)
+                                    t_names_from.append(from_whom)
+                                    t_nums.append("$" + how_much)
+                                    t_descriptions.append(for_what)
+                                }
+                                
+                                to_whom = ""
+                                how_much = ""
+                                for_what = ""
+                                from_whom = ""
+                                
+                                local_page_index = 0
+                                page_index = 0
+                            } else {
+                                local_page_index += 1
+                            }
+                        } label: {
+                            Text("Next")
+                        }
+                        .buttonStyle(.bordered)
+                    }
                 }
             }
-        }
     }
 }
 //

@@ -16,7 +16,7 @@ struct transaction_card: View {
     @State var expanded = false
     @State var h = CGFloat(100)
     var body: some View {
-        RoundedRectangle(cornerRadius: 25).fill(.gray)
+        RoundedRectangle(cornerRadius: 25).fill(.gray.opacity(0.5))
             .overlay(
                 VStack {
                     if (!expanded) {
@@ -27,15 +27,15 @@ struct transaction_card: View {
                     }
                     HStack {
                         Text(t_names_from[id])
-                        Text("->").font(.system(size: 25))
+                        Text("->").font(.system(size: 20))
                         Text(t_names[id])
                     }
                     Text(t_nums[id]).font(.system(size: 30))
                     Text("Description").opacity(expanded ? 1 : 0).fontWeight(.bold)
                     Text(t_descriptions[id]).multilineTextAlignment(.center).opacity(expanded ? 1 : 0)
                     Spacer().frame(height: 30)
-                    NavigationLink(value: Transaction(transName: "short", transFrom: t_names_from[id], transTo: t_names[id], transAmount: Float(t_nums[id]) ?? Float(0), transDesc: t_descriptions[id], transDate: Date.now, transGroup: "General")) {
-                        Text("More Info").frame(height: 10).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).frame(width: 100, height: 30))
+                    NavigationLink(value: Transaction(transName: "Spyder", transFrom: t_names_from[id], transTo: t_names[id], transAmount: Float(t_nums[id]) ?? Float(0), transDesc: t_descriptions[id], transDate: Date.now, transGroup: "General")) {
+                        Text("More Info").frame(height: 10).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).frame(width: 100, height: 30)).opacity(expanded ? 1 : 0)
                     }
                 }
                 
@@ -90,26 +90,24 @@ struct HomeView: View {
                                 view_toggle = 0
                             } label: {
                                 Text("Upcoming")
-                            }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle == 0 ? 1 : 0))
+                            }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.5)).frame(minWidth: 35).opacity(view_toggle == 0 ? 1 : 0))
                             Button {
                                 view_toggle = 1
                             } label: {
                                 Text("Me")
-                            }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle == 1 ? 1 : 0))
+                            }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.5)).frame(minWidth: 35).opacity(view_toggle == 1 ? 1 : 0))
                             Button {
                                 view_toggle = 2
                             } label: {
                                 Text("Org")
-                            }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).frame(minWidth: 35).opacity(view_toggle == 2 ? 1 : 0))
+                            }.foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.5)).frame(minWidth: 35).opacity(view_toggle == 2 ? 1 : 0))
                         }.position(x: geo.size.width/2, y: geo.size.height/6)
                     }
                 
                     ZStack {
                         ScrollView {
-                            ForEach((0...o_names.count-1), id: \.self) { id in
-                                NavigationLink(value: Transaction(transName: u_descriptions[id], transFrom: "me", transTo: u_names[id], transAmount: 0.0, transDesc: "short", transDate: Date.now, transGroup: "General")) {
-                                    transaction_card(id: id, t_names: u_names, t_names_from: u_names_from, t_nums: u_nums, t_descriptions: u_descriptions)
-                                }
+                            ForEach((0...u_names.count-1), id: \.self) {
+                                transaction_card(id: $0, t_names: u_names, t_names_from: u_names_from, t_nums: u_nums, t_descriptions: u_descriptions)
                             }
                         }.frame(width: geo.size.width / 1.5, height: geo.size.height / 2).position(x: geo.size.width / 2).opacity(view_toggle == 0 ? 1 : 0)
                         
