@@ -11,18 +11,22 @@ struct NavbarView: View {
 	@Binding var page_index: Int
 	
 	var body: some View {
-		HStack {
+		HStack() {
 			Button(action: {
 				page_index = 0
 			}) {
 				Image(systemName: "list.dash")
 			}
 			
+			Spacer()
+			
 			Button(action: {
 				page_index = 1
 			}) {
 				Image(systemName: "chart.bar")
 			}
+			
+			Spacer()
 			
 			Button(action: {
 				page_index = 2
@@ -31,20 +35,16 @@ struct NavbarView: View {
 			}
 			
 			Spacer()
-	
+				
 			Button(action: {
 				page_index = 4
 			}) {
-				Image(systemName: "plus.circle")
-				
-			}
-			
-			Button(action: {
-				page_index = 5
-			}) {
-				Text("Reimbursement")
-			}
-		}.padding()
+				Image(systemName: "plus")
+			}.padding(8)
+				.background(Color(.lightGray))
+			.foregroundColor(.white)
+			.clipShape(Capsule())
+		}.padding(40)
 	}
 }
 
