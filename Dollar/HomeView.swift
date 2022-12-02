@@ -27,7 +27,7 @@ struct transaction_card: View {
                         Spacer(minLength: 50)
                     }
                     if expanded == false {
-                        Spacer(minLength: 25)
+                        Spacer(minLength: 50)
                     }
                     HStack {
                         Text(t_names_from[id])
@@ -49,7 +49,7 @@ struct transaction_card: View {
                             expanded = false
                             transaction_id = id
                             page_index = 7
-                        }.opacity(expanded && is_upcoming ? 1 : 0)
+                        }.opacity(expanded && is_upcoming ? 1 : 0).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white).frame(width: 100, height: 30)).padding(10)
                     }
                 }
                 
