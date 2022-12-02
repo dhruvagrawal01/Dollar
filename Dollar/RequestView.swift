@@ -19,15 +19,18 @@ struct RequestView: View {
     
     //Dummy variables
     @Binding var t_names : [String]
+    @Binding var t_names_from : [String]
     @Binding var t_nums : [String]
     @Binding var t_descriptions : [String]
     
     
     @Binding var o_names : [String]
+    @Binding var o_names_from : [String]
     @Binding var o_nums : [String]
     @Binding var o_descriptions : [String]
     
     @Binding var u_names : [String]
+    @Binding var u_names_from : [String]
     @Binding var u_nums : [String]
     @Binding var u_descriptions: [String]
     
@@ -74,12 +77,17 @@ struct RequestView: View {
                         if (local_page_index == 2) {
                             
                             if me_paying == true {
-                                u_names.append(from_whom)
+                                u_names.append(to_whom)
+                                u_names_from.append("me")
+                                u_nums.append("+ $" + how_much)
+                                u_descriptions.append(for_what)
+                            } else {
+                                //submit
+                                t_names.append(to_whom)
+                                t_names_from.append(from_whom)
+                                t_nums.append( how_much)
+                                t_descriptions.append(for_what)
                             }
-                            //submit
-                            t_names.append(to_whom)
-                            t_nums.append("- $" + how_much)
-                            t_descriptions.append(for_what)
                             
                             to_whom = ""
                             how_much = ""
