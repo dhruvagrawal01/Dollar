@@ -15,11 +15,9 @@ struct BudgetHighlightView: View {
             HStack {
                 
                 Text(budget.name).frame(width: geometry.size.width * 0.35, alignment: Alignment(horizontal: .leading, vertical: .center))
-                Text(String(format: "$%.02f", budget.budget))
+                Text(String(format: "$%.02f", budget.allocatedAmount))
                 Spacer()
-                Text(String(format: "$%.02f", budget.activity))
-                Spacer()
-                Text(String(format: "$%.02f", budget.balance))
+                Text(String(format: "$%.02f", budget.balance)).frame(width: geometry.size.width * 0.2)
                 
             }.frame(width: geometry.size.width, alignment: .center)
         }
@@ -28,6 +26,6 @@ struct BudgetHighlightView: View {
 
 struct BudgetHighlightView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetHighlightView(budget: Budget.sample[0])
+        BudgetHighlightView(budget: Budget.sample)
     }
 }

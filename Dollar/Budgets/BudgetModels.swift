@@ -15,8 +15,8 @@ struct BudgetHighlight: Identifiable {
     let balance: Float
 }
 
-class Budget: Identifiable, Hashable {
-    static func == (lhs: Budget, rhs: Budget) -> Bool {
+class Budget2: Identifiable, Hashable {
+    static func == (lhs: Budget2, rhs: Budget2) -> Bool {
         lhs.id == rhs.id
     }
     
@@ -25,7 +25,7 @@ class Budget: Identifiable, Hashable {
     var budget: Float
     var activity: Float
     var balance: Float
-    var transactions: [Transaction]
+    var transactions: [Transaction2]
     var groups: [String]
     
     init(budgetName: String, initBudget: Float) {
@@ -38,7 +38,7 @@ class Budget: Identifiable, Hashable {
     }
     
     func addTransaction(item: String, entityFrom: String, entityTo: String, amount: Float, description: String, groupName: String, date: Date) {
-        transactions.append(Transaction(item: item, entityFrom: entityFrom, entityTo: entityTo, amount: amount, description: description, budget: name, group: groupName, date: date))
+        transactions.append(Transaction2(item: item, entityFrom: entityFrom, entityTo: entityTo, amount: amount, description: description, budget: name, group: groupName, date: date))
         
         if !groups.contains(groupName) {
             groups.append(groupName)
@@ -48,8 +48,8 @@ class Budget: Identifiable, Hashable {
         balance -= amount
     }
     
-    func addTransaction(transaction: Transaction) {
-        let newTransaction = Transaction(item: transaction.item, entityFrom: transaction.entityFrom, entityTo: transaction.entityTo, amount: transaction.amount, description: transaction.description, budget: name, group: transaction.group, date: transaction.date)
+    func addTransaction(transaction: Transaction2) {
+        let newTransaction = Transaction2(item: transaction.item, entityFrom: transaction.entityFrom, entityTo: transaction.entityTo, amount: transaction.amount, description: transaction.description, budget: name, group: transaction.group, date: transaction.date)
         transactions.append(newTransaction)
         
         if !groups.contains(transaction.group) {
@@ -65,13 +65,13 @@ class Budget: Identifiable, Hashable {
     }
 }
 
-extension Budget {
-    static var sample: [Budget] {
+extension Budget2 {
+    static var sample: [Budget2] {
         let budgets = [
-            Budget(budgetName: "General", initBudget: 1000),
-            Budget(budgetName: "Project 1", initBudget: 2500),
-            Budget(budgetName: "Social", initBudget: 500),
-            Budget(budgetName: "Project 2", initBudget: 8000)
+            Budget2(budgetName: "General", initBudget: 1000),
+            Budget2(budgetName: "Project 1", initBudget: 2500),
+            Budget2(budgetName: "Social", initBudget: 500),
+            Budget2(budgetName: "Project 2", initBudget: 8000)
         ]
         
         var oneDay = DateComponents()
@@ -82,12 +82,12 @@ extension Budget {
         
         budgets.forEach { budget in
             
-            budget.addTransaction(transaction: Transaction(item: "Posters", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Posters for Quad Day", budget: budget.name, group: "General", date: Date.now))
+            budget.addTransaction(transaction: Transaction2(item: "Posters", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Posters for Quad Day", budget: budget.name, group: "General", date: Date.now))
             
-            var sampleTransaction = Transaction(item: "Motor Controllers", entityFrom: "Person", entityTo: "Amazon", amount: 195, description: "Motor controllers for project", budget: budget.name, group: "Project", date: Calendar.current.date(byAdding: oneDay, to: Date.now)!)
+            var sampleTransaction = Transaction2(item: "Motor Controllers", entityFrom: "Person", entityTo: "Amazon", amount: 195, description: "Motor controllers for project", budget: budget.name, group: "Project", date: Calendar.current.date(byAdding: oneDay, to: Date.now)!)
             budget.addTransaction(transaction: sampleTransaction)
             
-            sampleTransaction = Transaction(item: "Event catering", entityFrom: "Person", entityTo: "Jimmy Johns", amount: 249, description: "Food for recent tech talk event", budget: budget.name, group: "General", date: Calendar.current.date(byAdding: twoDays, to: Date.now)!)
+            sampleTransaction = Transaction2(item: "Event catering", entityFrom: "Person", entityTo: "Jimmy Johns", amount: 249, description: "Food for recent tech talk event", budget: budget.name, group: "General", date: Calendar.current.date(byAdding: twoDays, to: Date.now)!)
             budget.addTransaction(transaction: sampleTransaction)
         }
         
@@ -95,7 +95,7 @@ extension Budget {
     }
 }
 
-struct Transaction: Identifiable, Hashable {
+struct Transaction2: Identifiable, Hashable {
     let id = UUID()
     var item: String
     var entityFrom: String
@@ -107,8 +107,8 @@ struct Transaction: Identifiable, Hashable {
     var date: Date
 }
 
-extension Transaction {
-    static var sample: Transaction {
-        Transaction(item: "Posters", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Posters for Quad Day", budget: "General", group: "General", date: Date.now)
+extension Transaction2 {
+    static var sample: Transaction2 {
+        Transaction2(item: "Posters", entityFrom: "Pranav", entityTo: "Amazon", amount: 49.99, description: "Posters for Quad Day", budget: "General", group: "General", date: Date.now)
     }
 }

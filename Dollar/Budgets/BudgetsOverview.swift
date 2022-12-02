@@ -11,15 +11,14 @@ import SwiftUI
 struct BudgetsOverview: View {
     let orgName: String
     let pageName = "Budgets Overview"
+    let origBudgets: [Budget]
     
     @State private var searchString = ""
-    @State private var budgets = Budget.sample
+    @State var displayedBudgets: [Budget]
     
     var body: some View {
         VStack {
             NavigationStack {
-                
-                
                 
                 List {
                     
@@ -29,13 +28,11 @@ struct BudgetsOverview: View {
                             Text("Name").frame(width: geometry.size.width * 0.335, alignment: .leading)
                             Text("Budget")
                             Spacer()
-                            Text("Activity")
-                            Spacer()
-                            Text("Balance")
+                            Text("Balance").frame(width: geometry.size.width * 0.26, alignment: .leading)
                             
                         }
                     }) {
-                        ForEach(budgets) { budget in
+                        ForEach(displayedBudgets) { budget in
                             
                             NavigationLink(value: budget) {
                                 BudgetHighlightView(budget: budget)
@@ -46,14 +43,14 @@ struct BudgetsOverview: View {
                 }.searchable(text: $searchString)
                     .onChange(of: searchString, perform: { newValue in
                         if newValue.isEmpty {
-                            budgets = Budget.sample
+                            displayedBudgets = origBudgets
                         } else {
-                            budgets = Budget.sample.filter { $0.name.lowercased().hasPrefix(searchString.lowercased())}
+                            displayedBudgets = origBudgets.filter { $0.name.lowercased().hasPrefix(searchString.lowercased())}
                         }
                     })
                 .navigationTitle("Budgets")
                 .navigationDestination(for: Budget.self) { budget in
-                    BudgetDetailView(orgName: orgName, selectedBudget: budget)
+                    BudgetDetailView(orgName: orgName, selectedBudget: budget, transactions: budget.transactions)
                 }
             }
         }
@@ -62,6 +59,6 @@ struct BudgetsOverview: View {
 
 struct BudgetsOverview_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetsOverview(orgName: "SPYDR")
+        BudgetsOverview(orgName: "SPYDR", origBudgets: Budget.samples, displayedBudgets: Budget.samples)
     }
 }
