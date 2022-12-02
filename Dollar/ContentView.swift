@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var page_index = 6
+    @State var transaction_id = 0
     
     @State var t_names = ["Jeff", "Me", "Me", "Andrew", "Lee", "Carl", "Madeline"]
     @State var t_names_from = ["Me", "Greg", "Kate", "Me", "Me", "Carl", "Me"]
@@ -34,7 +35,7 @@ struct ContentView: View {
 		VStack(alignment: .center) {
 			switch page_index {
 			case 0:
-                HomeView(page_index: $page_index, t_names: t_names,t_names_from: t_names_from, t_nums: t_nums, t_descriptions: t_descriptions, o_names: o_names, o_names_from: o_names_from, o_nums: o_nums, o_descriptions: o_descriptions, u_names: u_names, u_names_from: u_names_from, u_nums: u_nums, u_descriptions: u_descriptions)
+                HomeView(page_index: $page_index, transaction_id: $transaction_id, t_names: $t_names,t_names_from: $t_names_from, t_nums: $t_nums, t_descriptions: $t_descriptions, o_names: $o_names, o_names_from: $o_names_from, o_nums: $o_nums, o_descriptions: $o_descriptions, u_names: $u_names, u_names_from: $u_names_from, u_nums: $u_nums, u_descriptions: $u_descriptions)
 			case 1:
 				BudgetsOverview(orgName: "SPYDR", origBudgets: budgets, displayedBudgets: budgets)
 			case 2:
@@ -47,8 +48,10 @@ struct ContentView: View {
 				ReimbursementView(page_index: $page_index, t_names: $t_names, t_nums: $t_nums, t_descriptions: $t_descriptions)
 			case 6:
 				JoinView(page_index: $page_index)
+            case 7:
+                PaymentReqMethod(page_index: $page_index, transaction_id: $transaction_id, t_names: $t_names, t_names_from: $t_names_from, t_nums: $t_nums, t_descriptions: $t_descriptions, u_names: $u_names, u_names_from: $u_names_from, u_nums: $u_nums, u_descriptions: $u_descriptions)
 			default:
-                HomeView(page_index: $page_index, t_names: t_names,t_names_from: t_names_from, t_nums: t_nums, t_descriptions: t_descriptions, o_names: o_names, o_names_from: o_names_from, o_nums: o_nums, o_descriptions: o_descriptions, u_names: u_names, u_names_from: u_names_from, u_nums: u_nums, u_descriptions: u_descriptions)
+                HomeView(page_index: $page_index, transaction_id: $transaction_id, t_names: $t_names,t_names_from: $t_names_from, t_nums: $t_nums, t_descriptions: $t_descriptions, o_names: $o_names, o_names_from: $o_names_from, o_nums: $o_nums, o_descriptions: $o_descriptions, u_names: $u_names, u_names_from: $u_names_from, u_nums: $u_nums, u_descriptions: $u_descriptions)
 			}
 			
 			if (page_index != 3 && page_index != 6) {

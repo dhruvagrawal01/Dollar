@@ -46,7 +46,7 @@ struct RequestView: View {
                     ZStack {
                         Group {
                             QuestionTemplate(text_input: $to_whom, starting_sting: "Who is being payed?").opacity(me_paying ? 0 : 1).position(x:geo.size.width / 2, y:geo.size.height / 2)
-                            Text("Continue placing reimbursemnt request!").opacity(me_paying ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
+                            Text("Continue placing reimbursment request!").opacity(me_paying ? 1 : 0).position(x:geo.size.width / 2, y:geo.size.height / 2)
                         }.opacity(local_page_index == 0 ? 1 : 0)
                         
                         ZStack {
@@ -56,12 +56,12 @@ struct RequestView: View {
                                         Button {
                                             me_paying = true
                                         } label: {
-                                            Text("I am being paying")
+                                            Text("I am being paid")
                                         }.opacity(me_paying ? 0 : 1).foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.5)).frame(width: 200, height: 30).opacity(me_paying ? 0 : 1))
                                         Button {
                                             me_paying = false
                                         } label: {
-                                            Text("Someone else is being payed")
+                                            Text("Someone else is being paid")
                                         }.opacity(me_paying ? 1 : 0).foregroundColor(.black).background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.5)).frame(minWidth: 200, minHeight: 30).opacity(me_paying ? 1 : 0))
                                     }
                                 }
