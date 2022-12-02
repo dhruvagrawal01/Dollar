@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var page_index = 0
+    @State var page_index = 6
     
     @State var t_names = ["Jeff", "Greg", "Kate", "Andrew", "Lee", "Carl", "Madeline"]
     @State var t_nums = ["- $10", "+ $20", "+ $32", "- $12", "- $24", "+ $34", "- $124"]
@@ -41,11 +41,13 @@ struct ContentView: View {
 				RequestView(page_index: $page_index, t_names: $t_names, t_nums: $t_nums, t_descriptions: $t_descriptions, o_names: $o_names, o_nums: $o_nums, o_descriptions: $o_descriptions)
 			case 5:
 				ReimbursementView(page_index: $page_index, t_names: $t_names, t_nums: $t_nums, t_descriptions: $t_descriptions)
+			case 6:
+				JoinView(page_index: $page_index)
 			default:
 				HomeView(page_index: $page_index, t_names: t_names, t_nums: t_nums, t_descriptions: t_descriptions, o_names: o_names, o_nums: o_nums, o_descriptions: o_descriptions, u_names: u_names, u_nums: u_nums, u_descriptions: u_descriptions)
 			}
 			
-			if (page_index != 3) {
+			if (page_index != 3 && page_index != 6) {
 				NavbarView(page_index: $page_index)
 			}
 		}

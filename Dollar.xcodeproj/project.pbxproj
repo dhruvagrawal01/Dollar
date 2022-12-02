@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C6330BB2927397B008A0AEA /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6330BA2927397A008A0AEA /* NavbarView.swift */; };
 		1CDF7C2129242A20005CDF11 /* ReimbursementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF7C2029242A20005CDF11 /* ReimbursementView.swift */; };
+		1CFA3CF72939B13200ECAD6B /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA3CF62939B13200ECAD6B /* JoinView.swift */; };
 		299F5F272924025A00ABDBA7 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299F5F262924025A00ABDBA7 /* RequestView.swift */; };
 		299F5F292924094600ABDBA7 /* QuestionTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299F5F282924094600ABDBA7 /* QuestionTemplate.swift */; };
 		5008CBDB291EBE1600200DA9 /* DollarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008CBDA291EBE1600200DA9 /* DollarApp.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		1C6330BA2927397A008A0AEA /* NavbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
 		1CDF7C2029242A20005CDF11 /* ReimbursementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimbursementView.swift; sourceTree = "<group>"; };
+		1CFA3CF62939B13200ECAD6B /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		299F5F262924025A00ABDBA7 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		299F5F282924094600ABDBA7 /* QuestionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTemplate.swift; sourceTree = "<group>"; };
 		5008CBD7291EBE1600200DA9 /* Dollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dollar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				299F5F282924094600ABDBA7 /* QuestionTemplate.swift */,
 				5008CBDE291EBE1700200DA9 /* Assets.xcassets */,
 				5008CBE0291EBE1700200DA9 /* Preview Content */,
+				1CFA3CF62939B13200ECAD6B /* JoinView.swift */,
 			);
 			path = Dollar;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				542D47DE29271C2500515C18 /* OrgnizationOverview.swift in Sources */,
 				542D47DB2927150000515C18 /* OrgView.swift in Sources */,
 				5008CC09291ED29900200DA9 /* HeaderView.swift in Sources */,
+				1CFA3CF72939B13200ECAD6B /* JoinView.swift in Sources */,
 				509F671C2936B31600E20728 /* BudgetModel.swift in Sources */,
 				5008CC1229206B1400200DA9 /* BudgetDetailView.swift in Sources */,
 				5008CC05291EC37100200DA9 /* HomeView.swift in Sources */,
