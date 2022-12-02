@@ -19,6 +19,11 @@ class Transaction: Identifiable, Hashable {
     var group: String
     var budget: String
     
+    enum Status {
+        case pending, sent, delivered, cancelled
+    }
+    var status: Status = Status.pending
+    
     init(transName: String, transFrom: String, transTo: String, transAmount: Float, transDesc: String, transDate: Date, transGroup: String) {
         itemName = transName
         entityFrom = transFrom
@@ -27,7 +32,7 @@ class Transaction: Identifiable, Hashable {
         description = transDesc
         date = transDate
         group = transGroup
-        budget = ""
+        budget = "None"
     }
     
     init(origTrans: Transaction, transBudgetName: String, transGroup: String) {
